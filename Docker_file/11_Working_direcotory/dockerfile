@@ -1,0 +1,26 @@
+# WORKDIR adalah instruksi untuk menentukan direktori / folder untuk menjalankan instruksi
+# RUN, CMD, ENTRYPOINT, COPY dan ADD
+# WORKDIR juga digunkan sebagai path untuk lokasi pertama kali ketika masuk ke dalam docker container
+
+#  FORMAT
+# WORKDIR /app -> kalau ada slash maka ini absolute path atau /app
+# WORKDIR docker -> jika seperti ini maka akan seperti /app/docker
+# WORKDIR /home/app -> maka workdir /home/app
+
+# https://gist.github.com/khannedy/9262c7784a9ef65ced9dac712822a853
+
+FROM golang:1.18-alpine
+
+WORKDIR /app
+COPY main.go /app
+
+EXPOSE 8080
+CMD go run main.go
+
+# BUILD IMAGE
+# docker build -t alifrz/workdir workdir
+
+# BUILD CONTAINER
+# docker container create --name workdir -p 8080:8080 alifrz/workdir
+# docker container start workdir
+# docker container exec -i -t workdir /bin/sh
