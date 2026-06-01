@@ -1,0 +1,22 @@
+# network akan otomatis dibuat ketika compose dicreate
+# dan network akan terkoneksi secara otomatis
+# jika ingin melihat networknya, docker container inspect nama container
+
+# Jika ingin membuat sendiri 
+services:
+  mongodb-example2:
+    image: mongo:latest
+    container_name: mongodb-example2
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: alif
+      MONGO_INITDB_ROOT_PASSWORD: alif
+      MONGO_INITDB_DATABASE: admin
+    networks:
+      - network_example
+
+networks:
+  network_example:
+    name: network_example
+    driver: bridge

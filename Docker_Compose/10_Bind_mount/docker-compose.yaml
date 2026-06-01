@@ -1,0 +1,22 @@
+# Short Syntax
+# untuk bind mount, ada 2 syntax -> short dan long
+# short syntax = SOURCE:TARGET:MODE
+#   SOURCE = adalah lokasi di host
+#   TARGET = lokasi di container
+#   MODE   = mode bind, RO -> Read Only, RW -> Read and Write
+#   SOURCE = bisa menggunakan relative atau absolute path
+
+version: "3.8"
+
+services:
+  mongodb1:
+    image: mongo:latest
+    container_name: mongodb1
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: alif
+      MONGO_INITDB_ROOT_PASSWORD: alif
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - "./data-mongo1:/data/db"

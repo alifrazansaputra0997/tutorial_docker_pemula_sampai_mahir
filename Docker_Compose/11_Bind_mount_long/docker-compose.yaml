@@ -1,0 +1,21 @@
+# LONG SYNTAX
+# Long syntax dibuat dalam nested object
+# tipe mount ada 2, volume dan bind
+# source -> sumber path di host atau nama volume
+# target -> target path di container
+# read_only -> flag untuk readonly
+services:
+  mongodb2:
+    image: mongo:latest
+    container_name: mongodb2
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: alif
+      MONGO_INITDB_ROOT_PASSWORD: alif
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - type: bind
+        source: "./data-mongo2"
+        target: "/data/db"
+        read_only: false
