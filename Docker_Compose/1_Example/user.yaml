@@ -1,0 +1,18 @@
+firstName: Alif
+middleName: Razan
+lastName: Saputra
+hobbies:
+  - Coding
+  - Reading
+  - Gaming
+address:
+  street: Jl. Pintu Ledeng
+  city: Wasington
+  country: Uninted State
+wallet:
+  - type: cash
+    amount: 10000
+  - type: debit
+    amount: 50000
+  
+# json to yaml -> https://www.json2yaml.com

@@ -1,0 +1,34 @@
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#ports
+
+# short syntax
+# port HOST:CONTAINER
+# CONTOH "8080:80" 8080 DI HOST (DI LAPTOP), DI FORWARD KE 80 DICONTAINER
+
+#Long Syntax
+# bentuknya object port
+# isinya
+# 1. Target   : Port yang di dalam container
+# 2. published: Port yang digunakan di host
+# 3. protocol : Protocol port (tcp atau udp)
+# 4. mode     : Host untuk port di tiap Node, atau ingress untuk swarm mode
+
+version:  "3.8"
+
+services:
+  nginx-port1:
+    image: nginx:latest
+    container_name: nginx-port1
+    ports:
+      - protocol: tcp
+        published: 8080
+        target: 80
+
+  nginx-port2:
+    image: nginx:latest
+    container_name: nginx-port2
+    ports:
+      - "8081:80"
+
+# buka browser dan masukan url
+# http://localhost:8081/
+# http://localhost:8080/

@@ -1,0 +1,9 @@
+Version docker compose 
+# docker compose version
+
+# Configuration File
+Docker Componse menyimpan konfigurasi dalam bentuk file YAML https://yaml.org/
+File YAML mirip JSON, namun lebih sederhana
+Biasanya file konfigurasi disimpan dalam file bernama docker-compose.yaml
+
+https://docs.docker.com/compose/compose-file/compose-file-v3
