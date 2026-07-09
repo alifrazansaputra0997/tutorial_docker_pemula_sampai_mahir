@@ -1,0 +1,5 @@
+Extend Service
+    - Docker compose memiliki fiture bernama extend service, dimana kita bisa melakukan merge
+        beberapa file konfigurasi secara sekaligus
+    - dengan begitu, kita bisa membuat file konfigurasi umum, dan spesial untuk setiap jenis env
+    - saat menjalankan docker compose, kita bisa gunakan -f namafile.yaml jika ingin menggunakan nama fiel yang bukan docker-compose.yaml

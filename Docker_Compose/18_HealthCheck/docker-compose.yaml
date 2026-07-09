@@ -1,0 +1,36 @@
+# Attribute Healthcheck
+# test          = beriksikan cara melakukan health check
+# interval      = interval pada saat melakukan health check
+# timeout       = timeout melakukan health check
+# retries       = total retry ketika gagal
+# start_period  = waktu mulai melakukan health check
+
+# Gunakan file golang
+# https://github.com/ProgrammerZamanNow/belajar-docker-dockerfile/blob/main/health/main.go
+
+# Gunakan dockerfile
+# https://github.com/ProgrammerZamanNow/belajar-docker-dockerfile/blob/main/health/Dockerfile
+
+services:
+  app:
+    container_name: app
+    build:
+      context:  "./app"
+      dockerfile: Dockerfile
+    image: "app-golang:1.0.0"
+    environment:
+      - "APP_PORT=8080"
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+# docker compose build -> build dari dockerfile
+# docker compose create
+# docker compose start
+# docker compose ps 
+# docker container 

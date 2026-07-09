@@ -1,0 +1,18 @@
+# jadi ini adalah membuat docker image dari file dockerfile namun dengan docker-compose
+services:
+  app: # ini adalah nama folder 
+    container_name: app # ini adalah nama folder 
+    build:
+      context: "./app" # ini adalah lokasi folder dari dockerfile
+      dockerfile: Dockerfile # ini adalah nama dockerfile
+    image: "app-golang:1.0.0" # ini adalah hasil dari image yang sudah dibuat di build atas dan diberi nama
+    environment:
+      - "APP_PORT=8080"
+    ports:
+      - "8080:8080"
+
+# steps
+# 1. docker compose build (folder build)
+# 2. docker image ls | grep 'app-golang'
+# 3. docker compose create
+# 4. docker compose start
